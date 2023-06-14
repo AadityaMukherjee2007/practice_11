@@ -23,7 +23,25 @@ public class Arrays_2d
 
     public void sum()
     {
+        for (int i = 0; i < arr.length; i++)
+        {
+            int sum = 0;
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                sum += arr[i][j];
+            }
+            System.out.println("Sum of row" + (i + 1) + " : " + sum);
+        }
 
+        for (int i = 0; i < arr[0].length; i++)
+        {
+            int sum = 0;
+            for (int j = 0; j < arr.length; j++)
+            {
+                sum += arr[j][i];
+            }
+            System.out.println("Sum of column" + (i + 1) + " : " + sum);
+        }
     }
 
     public void print()
@@ -67,10 +85,30 @@ public class Arrays_2d
         System.out.println("}");
     }
 
+    public void matrixPrint()
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                if (arr[i][j] >= 0 && arr[i][j] < 10)
+                {
+                    System.out.print("  " + arr[i][j]);
+                }
+                else
+                {
+                    System.out.print(" " + arr[i][j]);
+                }
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String args[])
     {
         Arrays_2d obj = new Arrays_2d();
         obj.in();
-        obj.print();
+        obj.matrixPrint();
+        obj.sum();
     }
 }
