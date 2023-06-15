@@ -2,9 +2,9 @@ import java.util.Scanner;
 public class Arrays_2d
 {
     int[][] arr;
-    Arrays_2d()
+    Arrays_2d(int i, int j)
     {
-        arr = new int[3][4];
+        arr = new int[i][j];
     }
 
     public void in()
@@ -42,6 +42,63 @@ public class Arrays_2d
             }
             System.out.println("Sum of column" + (i + 1) + " : " + sum);
         }
+    }
+
+    public void largestNumInEachRow()
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            System.out.println("Row" + (i + 1));
+            int largestNum = arr[i][0];
+            String position = "";
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                if (largestNum < arr[i][j])
+                {
+                    largestNum = arr[i][j];
+                    position = i + ", " + j;
+                }
+            }
+            System.out.println("Greatest Number: " + largestNum);
+            System.out.println("Position: " + position + "\n");
+        }
+    }
+
+    public void largestNum()
+    {
+        int largestNum = arr[0][0];
+        String position = "";
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                if (largestNum < arr[i][j])
+                {
+                    largestNum = arr[i][j];
+                    position = i + ", " + j;
+                }
+            }
+        }
+        System.out.println("Greatest Number: " + largestNum);
+        System.out.println("Position: " + position);
+    }
+
+    public void sumOfDiagonal()
+    {
+        if (arr.length != arr[0].length)
+        {
+            System.out.println("This function only works for a square matrix.");
+            System.exit(0);
+        }
+
+        int sumOfDiagonal_1 = 0, sumOfDiagonal_2 = 0;
+        for (int i = 0, j = arr.length - 1; i < arr.length; i++, j--)
+        {
+            sumOfDiagonal_1 += arr[i][i];
+            sumOfDiagonal_2 += arr[j][j];
+        }
+        System.out.println("Sum of Diagonal1: " + sumOfDiagonal_1);
+        System.out.println("Sum of Diagonal2: " + sumOfDiagonal_2);
     }
 
     public void print()
@@ -106,9 +163,12 @@ public class Arrays_2d
 
     public static void main(String args[])
     {
-        Arrays_2d obj = new Arrays_2d();
+        Arrays_2d obj = new Arrays_2d(3, 3);
         obj.in();
         obj.matrixPrint();
         obj.sum();
+        obj.largestNumInEachRow();
+        obj.largestNum();
+        obj.sumOfDiagonal();
     }
 }
