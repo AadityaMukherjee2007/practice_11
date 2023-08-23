@@ -50,6 +50,25 @@ public class Arrays
         System.out.println("Average (even): " + even_avg);
         System.out.println("Average: (odd):" + odd_avg);
     }
+    
+    public void sort()
+    {
+        for (int i = 0; i < arr.length; i++)
+        {
+            int smallest = arr[i], pos = i;
+            for (int j = i + 1; j < arr.length; j++)
+            {
+                if (smallest > arr[j])
+                {
+                    smallest = arr[j];
+                    pos = j;
+                }
+            }
+            int tmp = arr[i];
+            arr[i] = arr[pos];
+            arr[pos] = tmp;
+        }
+    }
 
     public void print()
     {
@@ -74,5 +93,7 @@ public class Arrays
         obj.fill();
         obj.print();
         obj.avg();
+        obj.sort();
+        obj.print();
     }
 }

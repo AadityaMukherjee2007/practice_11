@@ -2,7 +2,7 @@ import java.util.Scanner;
 public class Arrays_2d
 {
     int[][] arr;
-    Arrays_2d(int i, int j)
+    public Arrays_2d(int i, int j)
     {
         arr = new int[i][j];
     }
@@ -95,7 +95,7 @@ public class Arrays_2d
         for (int i = 0, j = arr.length - 1; i < arr.length; i++, j--)
         {
             sumOfDiagonal_1 += arr[i][i];
-            sumOfDiagonal_2 += arr[j][j];
+            sumOfDiagonal_2 += arr[i][j];
         }
         System.out.println("Sum of Diagonal1: " + sumOfDiagonal_1);
         System.out.println("Sum of Diagonal2: " + sumOfDiagonal_2);
